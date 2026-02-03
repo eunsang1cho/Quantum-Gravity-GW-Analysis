@@ -1,0 +1,110 @@
+Multi-Event Analysis Summary
+==================================================
+
+Total events analyzed: 5
+
+Individual Event Results:
+--------------------------------------------------
+
+GW150914:
+  Mass: 62.0 M☉
+  Spin: 0.680
+  mass: 62.000000
+  spin: 0.680000
+  f220_gr: 274.448697
+  tau220_gr: 0.001859
+  max_deviation: 0.214641
+  significance: 1.113530
+
+GW151226:
+  Mass: 20.8 M☉
+  Spin: 0.740
+  mass: 20.800000
+  spin: 0.740000
+  f220_gr: 859.121324
+  tau220_gr: 0.000644
+  max_deviation: -0.134708
+  significance: 0.695149
+
+GW170814:
+  Mass: 53.2 M☉
+  Spin: 0.720
+  mass: 53.200000
+  spin: 0.720000
+  f220_gr: 330.217754
+  tau220_gr: 0.001628
+  max_deviation: 0.479395
+  significance: 1.005326
+
+GW190521:
+  Mass: 142.0 M☉
+  Spin: 0.720
+  mass: 142.000000
+  spin: 0.720000
+  f220_gr: 123.715384
+  tau220_gr: 0.004345
+  max_deviation: 2.096515
+  significance: 0.658834
+  detected: False
+
+GW190814:
+  Mass: 25.6 M☉
+  Spin: 0.710
+  mass: 25.600000
+  spin: 0.710000
+  f220_gr: 680.605643
+  tau220_gr: 0.000779
+  max_deviation: -0.127078
+  significance: 1.033479
+
+==================================================
+Combined Statistics:
+--------------------------------------------------
+
+Weighted mean deviation: 0.416579 ± 0.733644
+Combined significance: 0.45 σ
+
+Correlation = -0.678, p = 0.208
+
+==================================================
+
+======================================================================
+THEORETICAL INTERPRETATION
+======================================================================
+
+Expected quantum gravity effects:
+--------------------------------------------------
+1. Planck-scale cutoff (Gravitational Lattice Stretching):
+   - Frequency shift: δf/f ~ ξ(l_P/r_s)²
+   - For solar-mass BH: (l_P/r_s)² ~ 10⁻⁸⁰
+   - Detection requires ξ >> 10⁷⁰ (implausible)
+
+2. Loop Quantum Gravity corrections:
+   - Area quantization: A_min ~ γl_P²
+   - Primarily affects Planck-mass BHs
+   - For solar-mass: effect ~ 10⁻⁷⁶ (undetectable)
+
+3. Quantum horizon effects (echoes):
+   - Post-ringdown reflections
+   - Time delay ~ r_s/c ~ 0.1-1 ms
+   - Amplitude ~ 10⁻³ of main signal
+
+======================================================================
+STATISTICAL INTERPRETATION
+======================================================================
+
+Combined significance: 0.45σ
+Interpretation: NO EVIDENCE for quantum effects
+Confidence: Results consistent with GR
+
+If real, implied quantum parameter:
+  ξ ~ 5.12e+79
+  (compared to theoretical expectation ~ 1)
+
+⚠️  WARNING: Unrealistically large ξ or deviation suggests:
+   - Systematic error in analysis (most likely)
+   - Analysis method not suitable for this data
+   - Need to tune preprocessing parameters
+
+RECOMMENDATION: Treat as NULL RESULT.
+

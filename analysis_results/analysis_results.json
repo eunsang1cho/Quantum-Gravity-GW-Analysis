@@ -1,0 +1,82 @@
+{
+  "analysis_date": "2026-02-04T00:02:58.663628",
+  "n_events": 5,
+  "events": [
+    {
+      "name": "GW150914",
+      "mass": 62.0,
+      "spin": 0.68,
+      "results": {
+        "event_name": "GW150914",
+        "mass": 62.0,
+        "spin": 0.68,
+        "f220_gr": 274.4486974798562,
+        "tau220_gr": 0.001858648012905676,
+        "max_deviation": 0.21464123291686235,
+        "significance": 1.113530377441891
+      }
+    },
+    {
+      "name": "GW151226",
+      "mass": 20.8,
+      "spin": 0.74,
+      "results": {
+        "event_name": "GW151226",
+        "mass": 20.8,
+        "spin": 0.74,
+        "f220_gr": 859.1213241051023,
+        "tau220_gr": 0.0006444131642777263,
+        "max_deviation": -0.13470847523670684,
+        "significance": 0.6951492712491942
+      }
+    },
+    {
+      "name": "GW170814",
+      "mass": 53.2,
+      "spin": 0.72,
+      "results": {
+        "event_name": "GW170814",
+        "mass": 53.2,
+        "spin": 0.72,
+        "f220_gr": 330.21775445941574,
+        "tau220_gr": 0.0016279394325367184,
+        "max_deviation": 0.47939543030545845,
+        "significance": 1.005325875967183
+      }
+    },
+    {
+      "name": "GW190521",
+      "mass": 142.0,
+      "spin": 0.72,
+      "results": {
+        "event_name": "GW190521",
+        "mass": 142.0,
+        "spin": 0.72,
+        "f220_gr": 123.71538406507686,
+        "tau220_gr": 0.004345251868801015,
+        "max_deviation": 2.096514575504068,
+        "significance": 0.658833546476834,
+        "detected": false
+      }
+    },
+    {
+      "name": "GW190814",
+      "mass": 25.6,
+      "spin": 0.71,
+      "results": {
+        "event_name": "GW190814",
+        "mass": 25.6,
+        "spin": 0.71,
+        "f220_gr": 680.6056432378921,
+        "tau220_gr": 0.0007789783337353954,
+        "max_deviation": -0.12707832211845646,
+        "significance": 1.033479434988102
+      }
+    }
+  ],
+  "combined_statistics": {
+    "weighted_mean_deviation": 0.41657884668955886,
+    "weighted_std_deviation": 0.7336439716114386,
+    "combined_significance_sigma": 0.4505205397091748
+  }
+}

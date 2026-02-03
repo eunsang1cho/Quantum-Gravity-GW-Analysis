@@ -1,0 +1,24 @@
+# Quantum Gravity Ringdown Analysis Pipeline
+# Python Package Requirements
+
+# Core scientific computing
+numpy>=1.20.0
+scipy>=1.7.0
+matplotlib>=3.3.0
+
+# LIGO gravitational wave data analysis
+gwpy>=3.0.0
+
+# Optional but recommended
+h5py>=3.0.0          # For HDF5 file handling
+astropy>=5.0.0       # Astronomical calculations and units
+
+# Development (optional)
+pytest>=6.0.0        # For running tests
+jupyter>=1.0.0       # For interactive analysis
+ipython>=7.0.0       # Enhanced Python shell
+
+# Note: gwpy includes many dependencies:
+# - lal, lalframe, lalsimulation (LIGO Algorithm Library)
+# - gwdatafind (LIGO data location)
+# - dqsegdb (data quality segments)

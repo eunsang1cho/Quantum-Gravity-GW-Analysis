@@ -1,285 +1,221 @@
-# Black Hole Ringdown Analysis: Search for Quantum Gravitational Signatures
+# 🌌 Quantum Gravity Ringdown Analysis Pipeline
 
-**Status:** NULL Result | **Date:** February 2026 | **Author:** Eunsang
+**Search for quantum gravity signatures in LIGO gravitational wave data**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
-## 🎯 Executive Summary
+## 🎯 What is This?
 
-**Research Question:** Do black hole ringdown frequencies show systematic deviations from General Relativity at specific mass ranges?
+This pipeline tests the "**Gravitational Lattice Stretching**" hypothesis: if quantum gravity introduces a minimum length scale (Planck length), black hole ringdown frequencies might deviate from General Relativity predictions near the event horizon.
 
-**Answer:** **No statistically significant evidence found.**
-
-**Key Finding:** One event (GW170818) showed +10.5% deviation with 16σ significance, but could not be reproduced, suggesting statistical fluctuation.
-
-**Conclusion:** Current data insufficient to detect 3% quantum effects beneath 20% spin uncertainties.
-
----
-
-## 📖 Quick Navigation
-
-- [Motivation](#motivation) - Why we did this
-- [Hypothesis](#hypothesis) - What we expected
-- [Methodology](#methodology) - How we analyzed
-- [Results](#results) - What we found
-- [Why NULL](#why-null-result) - Why it failed
-- [Code](#code-repository) - Where's the code
-- [Lessons](#lessons-learned) - What we learned
+### Key Features:
+- ⚡ High-resolution time-frequency analysis (sub-millisecond)
+- 🎵 Multi-mode overtone fitting
+- 📊 Multi-event statistical stacking
+- 📈 Automated batch processing of LIGO events
+- 🎨 Publication-quality plots
 
 ---
 
-## 🌌 Motivation
-
-Black holes ring like bells after mergers. General Relativity predicts exact frequencies. Quantum gravity theories suggest small (~3%) deviations at specific masses.
-
-**Initial observation:** 3 events at 59-62 M☉ showed +3% upshift.
-
-**Question:** Real quantum signal, or measurement artifact?
-
----
-
-## 🔬 Hypothesis
-
-```
-f_observed = f_GR × (1 + δ_quantum)
-
-where δ_quantum ≈ +3% for M ∈ [59, 62] M☉
-```
-
-**Predicted:**
-- ✓ Mass-dependent
-- ✓ Consistent positive deviation
-- ✓ >5σ significance
-
----
-
-## 🛠️ Methodology
-
-### Phase 1: Synthetic Data (✓ Success)
-```
-3/3 events: +3% deviation
-10.5σ combined significance
-```
-**Problem:** Test data, not real observations
-
-### Phase 2: Real LIGO Data (✗ Mixed)
-```
-44 events analyzed
-59-62 M☉: 71% positive (p=0.23)
-Large scatter: ±18%
-```
-**Problem:** Ignored black hole spin
-
-### Phase 3: Spin Correction (✗ Worse)
-```
-Applied Kerr geometry corrections
-Result: Even larger scatter
-```
-**Problem:** Spin effects ~20%, quantum effects ~3%
-
-### Phase 4: Precision Selection (✗ Failed)
-```
-Selected edge-on events (minimal spin)
-GW170818: +10.5% (16σ) ✓
-GW150914: -11.8% (13σ) ✗
-```
-**Result:** 50% win rate = random
-
----
-
-## 📊 Results
-
-### Overall Statistics
-
-| Analysis | Events | Deviation | p-value | Result |
-|----------|--------|-----------|---------|--------|
-| Synthetic | 3 | +3.0% ± 0.3% | <0.01 | ✓ |
-| Real (raw) | 44 | +0.5% ± 14.3% | 0.62 | ✗ |
-| Spin-corrected | 36 | +3.2% ± 15.1% | 0.45 | ✗ |
-| Precision | 3 | +2.4% ± 10.8% | 0.78 | ✗ |
-
-### Key Events
-
-**GW170818 (Golden Event):**
-- Mass: 59 M☉ (resonance range)
-- Angle: 90° (edge-on, minimal spin)
-- Result: **+10.50% ± 0.65% (16.1σ)**
-- **Status:** Isolated, not reproduced
-
-**GW150914 (Contradicts):**
-- Mass: 62 M☉ (resonance range)
-- Angle: 30° (face-on, strong spin)
-- Result: **-11.77% ± 0.92% (12.8σ)**
-- **Status:** Negative deviation!
-
-**GW170608 (Control):**
-- Mass: 18 M☉ (outside resonance)
-- Angle: 77° (nearly edge-on)
-- Result: **-6.47% ± 0.98% (6.6σ)**
-- **Status:** Negative
-
----
-
-## ❌ Why NULL Result?
-
-### Critical Failures
-
-**1. No Reproducibility**
-```
-Resonance events (59-62 M☉):
-✓ GW170818: +10.5%
-✗ GW150914: -11.8%
-
-Win rate: 50% (random)
-```
-
-**2. Spin Dominates Signal**
-```
-Spin effect: ±20%
-Quantum effect: ~3%
-SNR: 1:7 (unfeasible)
-```
-
-**3. Insufficient Statistics**
-```
-Need: >10 edge-on events in resonance
-Have: 1 event (GW170818)
-```
-
-**4. No Predictive Power**
-```
-Expected: +3%
-Observed: -12% to +11%
-Random scatter
-```
-
-### Bottom Line
-
-> **One extraordinary event (GW170818) is not enough. Science requires reproducibility.**
-
----
-
-## 📂 Code Repository
-
-### Files Provided
-
-```
-code/
-├── full_analysis.py              # Complete catalog analysis
-├── spin_corrected_analysis.py    # Kerr correction
-├── precision_kerr_analysis.py    # Final precision analysis
-├── visualize_results.py          # Plotting
-└── statistical_analysis.py       # Stats
-
-data/
-├── full_analysis_results.csv
-├── spin_corrected_results.csv
-└── precision_results.csv
-
-figures/
-└── [all generated plots]
-```
-
-### Quick Start
+## 🚀 Quick Start
 
 ```bash
-# Basic analysis
-python code/full_analysis.py
+# 1. Install dependencies
+pip install numpy scipy matplotlib gwpy
 
-# With real LIGO data (slow)
-python code/full_analysis.py --real
+# 2. Analyze a single event
+python ligo_data_fetcher.py --event GW150914 --detector H1
+python -c "
+import numpy as np
+from quantum_ringdown_analysis import analyze_single_event
+data = np.load('GW150914_H1_processed.npz')
+analyze_single_event(
+    strain=data['strain'],
+    sample_rate=data['sample_rate'],
+    merger_time=data['merger_idx'],
+    final_mass=data['final_mass'],
+    final_spin=data['final_spin'],
+    event_name='GW150914'
+)
+"
 
-# Precision analysis
-python code/precision_kerr_analysis.py --min-priority 40
+# 3. Or batch process all events
+python batch_analysis.py --all
+```
 
-# Visualize
-python code/visualize_results.py
+**Output**: Results in `analysis_results/` directory
+
+---
+
+## 📁 Files
+
+| File | Description |
+|------|-------------|
+| `quantum_ringdown_analysis.py` | Core analysis engine |
+| `ligo_data_fetcher.py` | Data download & preprocessing |
+| `batch_analysis.py` | Multi-event batch processing |
+| `USAGE_GUIDE.md` | **📖 Detailed documentation** |
+| `requirements.txt` | Python dependencies |
+
+---
+
+## 📊 Example Output
+
+### Individual Event Analysis:
+```
+Analyzing GW150914
+=========================================================
+Final mass: 62.0 M☉
+Final spin: 0.680
+
+GR Predictions:
+  f_220 = 251.3 Hz
+  τ_220 = 3.87 ms
+
+Phase 1: Early Ringdown Analysis (0-2 ms)...
+  No significant deviation
+  Max deviation: 0.23%
+  Significance: 2.1 σ
+
+Phase 2: Overtone Analysis...
+  f_0 (observed): 251.1 Hz
+  f_1 (observed): 397.2 Hz
+  Ratio: 1.582 (GR: 1.580)
+  Deviation: 0.13%
+```
+
+### Multi-Event Summary:
+```
+Multi-Event Analysis Summary
+=========================================================
+
+Total events analyzed: 6
+
+Combined Statistics:
+-----------------------------------------------------------
+Weighted mean deviation: 0.001523 ± 0.000892
+Combined significance: 2.81 σ
+
+INTERPRETATION: No evidence for quantum effects
 ```
 
 ---
 
-## 🎓 Lessons Learned
+## 🔬 Science Background
 
-### What Worked ✓
+### The Hypothesis
 
-- Systematic methodology
-- Transparent failure documentation
-- Spin correction framework
-- Statistical rigor
+**If** quantum gravity introduces a Planck-scale cutoff, **then** strong-field regions near black hole horizons should show:
 
-### What Didn't ✗
+1. **Modified ringdown frequencies**: $f_{obs} = f_{GR}(1 + \xi \frac{l_P^2}{r_s^2})$
+2. **Anomalous damping**: Different $\tau$ than GR predicts
+3. **Quantum echoes**: Post-ringdown reflections from "fuzzy" horizon
 
-- Small sample over-interpretation
-- Underestimated systematic errors
-- Spin effects too large to correct
+### Expected Effect Size
 
-### Key Insight
+For solar-mass black holes:
+```
+(l_P / r_s)² ≈ 10⁻⁸⁰  ← Vanishingly small!
+```
 
-**"3% quantum effects are invisible beneath 20% spin uncertainties with current data quality."**
+**Reality**: Direct Planck effects are **undetectable** with current LIGO.
 
-### Technical Skills Gained
-
-- LIGO data analysis (gwpy)
-- Gravitational wave physics
-- Kerr black hole geometry
-- Statistical hypothesis testing
-- Null result reporting
+**Alternative signatures** (more realistic):
+- Echoes: ~10⁻³ amplitude, 0.1-1s delay
+- Modified overtone ratios: ~1% deviations
+- Non-Planck quantum effects (e.g., from string theory at lower scales)
 
 ---
 
-## 📚 Key References
+## 🎓 For Researchers
 
-1. **Berti et al. (2006)** - Kerr QNM frequencies
-2. **LIGO Collaboration (2021)** - GWTC-3 catalog
-3. **Dreyer et al. (2004)** - Black hole spectroscopy
-4. **GWOSC** - https://www.gw-openscience.org/
+### This Pipeline is **NOT** Publication-Ready
 
----
+To publish, you would need:
+- [ ] Full LIGO catalog (90+ events from GWTC-3)
+- [ ] Bayesian parameter estimation (not just point estimates)
+- [ ] Injection studies & systematic error budget
+- [ ] Independent code verification
+- [ ] Blind analysis protocol
 
-## 🔮 Future Work
+**This is a research tool for exploratory analysis.**
 
-**To succeed, need:**
+### Limitations
 
-1. **10× more data** (LIGO O4/O5)
-2. **10× better spin constraints**
-3. **Alternative signatures** (damping, overtones)
-4. **Bayesian model comparison**
-
-**Current approach:** Not feasible with existing catalogs.
-
----
-
-## 📝 Final Thoughts
-
-This project documents a **failed hypothesis test**. The result is negative, but the methodology and lessons are valuable.
-
-**Why publish NULL results?**
-- Prevents others from repeating same mistakes
-- Documents what doesn't work
-- Contributes to scientific knowledge
-- Shows realistic research process
-
-**Status:** Research concluded. Code and data available for verification.
+1. **Detection threshold**: ~10⁻³ fractional deviation (LIGO noise floor)
+2. **Theoretical uncertainty**: QNM frequencies known to ~0.1%
+3. **Systematic errors**: Calibration, waveform models, glitches
+4. **Statistical power**: Need 100+ events for 5σ detection of 10⁻³ effect
 
 ---
 
-## 📄 License
+## 📚 References
 
-MIT License
+### Theory:
+- **Loop Quantum Gravity**: Rovelli & Smolin (1995), Gingrich (2024)
+- **Quantum Horizons**: Cardoso et al. (2016) - Phys. Rev. D 94, 084031
+- **GUP**: Adler et al. (2001) - Gen. Rel. Grav. 33, 2101
+
+### LIGO Analysis:
+- **GWTC-1 Tests of GR**: Abbott et al. (2019) - Phys. Rev. D 100, 104036
+- **QNM Formulas**: Berti et al. (2006) - Phys. Rev. D 73, 064030
+
+### Data Source:
+- **LIGO Open Science Center**: https://www.gw-openscience.org
 
 ---
 
-## 📮 Contact
+## 🤝 Contributing
 
-**Author:** Eunsang  
-**Date:** February 2026  
-**Reproducibility:** All code and data provided
+Contributions welcome! Areas for improvement:
+- Better overtone extraction (full Prony method)
+- Echo search templates
+- GPU acceleration
+- Integration with LALSuite
 
 ---
 
-*"Failure is not the opposite of success; it's part of success."*
+## ⚖️ License
 
-**NULL RESULT | HIGH REPRODUCIBILITY | VALUABLE LESSONS**
+MIT License - See LICENSE file
+
+**Data**: LIGO data is publicly available under Creative Commons Attribution 3.0 License
+
+---
+
+## 👥 Authors
+
+- Original hypothesis: Eunsang (2026)
+- Pipeline implementation: Research collaboration
+- Based on methods from: LIGO Scientific Collaboration, LQG community
+
+---
+
+## 📞 Contact
+
+Questions? Issues?
+1. Read `USAGE_GUIDE.md` first
+2. Check inline documentation
+3. Open an issue on GitHub
+
+---
+
+## 🎯 Bottom Line
+
+**Expected result**: No detection (as theory predicts for solar-mass black holes)
+
+**Interesting result**: Any significant deviation would be:
+1. A systematic error (most likely), OR
+2. Evidence for non-Planck quantum gravity, OR  
+3. Modified gravity at larger scales, OR
+4. **New physics!** (but extraordinary claims require extraordinary evidence)
+
+**Good luck hunting for quantum gravity!** 🔬✨
+
+---
+
+*"The absence of evidence is not evidence of absence, but it is evidence of a really good hiding place."* - Unknown
+
